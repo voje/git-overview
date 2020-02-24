@@ -44,6 +44,10 @@ Starting from scratch, we will pull a project, make a change and push that chang
 git clone https://github.com/voje/git-overview.git
 cd git-overview
 
+# You don't want to write to the master branch, 
+# create a new branch instead.
+git checkout -b new_feature_branch
+
 # Create a new file (or change an existing one).
 echo "Some new feature" > new_feature.txt
 
@@ -51,21 +55,96 @@ echo "Some new feature" > new_feature.txt
 git add new_feature.txt
 
 # Commit the change.
-git commit -m "Adding new feature."
+git commit -m "Adds new feature."
 
 # Check the working tree.
 git status
 
 # When happy, push to remote.
-git push origin master
+git push origin new_feature_branch
 ```
 That's it.   
 
 
 ### git clone
+Go to GitHub or GitLab, find a project you like and find the `Clone or download` button.   
+You will get the URL to the project, looking something like:
+`https://github.com/voje/git-overview.git`.   
+Make sure to use the `https://` url, not the `git@` one.   
+
+```bash
+git clone https://github.com/voje/git-overview.git
+```
+A folder is created with the same name as the project (in this case: `git-overview`).   
+This is the local git repository (an exact clone of the remote project).   
+Cd into the directory.   
+```bash
+cd git-overview
+```
+We are inside the project now.   
+This is the root of the project.   
+We can find a `.git` folder, containing all the project metadata.   
+It is recommended not to change this folder - you should interact with the project using the `$ git` command.   
+
+For a quick overview, you can try `$ git status` to see what's new and `$ git log` to see the commit history. More on those commands in the following chapters.   
 
 
+### git checkout -b new_branch
+After cloning a git project, we are on the `master` branch.   
+You can check this with `$git branch --all`.   
+You will see your local branches (only `master` right now) and all the remote branches -- the branches on the remote server.   
 
-### git add
+It's bad practise to modify master since this is the production branch and we can break a lot of things that way.   
+
+When editing the project, create another branch with a meaningful name:
+Let's say we want to edit the `README.md` file.   
+```bash
+# create a new local branch
+git branch editing_readme
+
+# go to that branch
+git checkout editing_readme
+```
+Last step, check that you are on the correct branch:
+```bash
+git branch --all
+```
+
+
+### git status, git add
+Git tracks all the changes to the current branch.   
+Let's add a file:   
+```bash
+echo "Hello, Git!" > new_file.txt
+```
+Also let's modify an existing file:
+```bash
+echo "New line." >> README.md
+```
+We can check the current status of our project with `$ git status`.   
+Now add the the changes to the index(TODO):
+```bash
+git add new_file.txt
+git add README.md
+```
+Checking `$ git status`, we see that we've added all our changes.   
+
+
+### git diff
+Git diff is a powerful tool to compare different versions of files in our project.   
+We can check how our current branch differs from the original (`master`) branch.   
+```bash
+git diff master
+```
+Or in case we are only interested in one specific file, use the `--` syntax:
+```bash
+git diff master -- README.md
+```
+
 ### git commit
+TODO
+
 ### git push
+
+
+### HEAD
