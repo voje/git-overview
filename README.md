@@ -1,20 +1,31 @@
 # git-overview
-Overview of the git workflow, meant as a beginner level training course.   
-This page will contain working examples of git commands.  
-For more details, see the `in-depth` link for a specific chapter.   
-I will be visualizing all of the commands using [this project](https://git-school.github.io/visualizing-git/).   
 
-## Contents
+Prezi link:
+https://prezi.com/view/GRX22I4Rh8Fe9smLUxdN/
+
+Overview of the git workflow, meant as a beginner level training course.   
+This page contains working examples of git commands.  
+
+You can use the following visualization tool:
+https://git-school.github.io/visualizing-git/#free-remote
+
+
+## Content
 
 * What is git?
 * tl;dr workflow
-* Basic workflow (https://rogerdudler.github.io/git-guide/)
+* Git workflow (https://rogerdudler.github.io/git-guide/)
   * git clone
   * git pull
   * git add
   * git commit
   * git push
-* Advanced workflow
+---
+Advanced
+
+* HEAD
+* index
+* working tree
 
 
 ## What is git?
@@ -33,7 +44,7 @@ Git creates a local copy of the whole project. All changes are done locally. Whe
 Git was doing blockchains before it was cool. Each version ID (called `commit`) depends on the whole history of the project up to that point. Commits are stored in a structure similar to a `Merkle tree` (the data structure powering cryptocurrency blockchains). It is impossible to change git history without being noticed.   
 
 
-## Basic workflow
+## Git workflow
 
 ### tl;dr
 The too long, didn't read version of this document would be the following basic git commands used 80% of the time:
@@ -111,7 +122,15 @@ git branch --all
 ```
 
 
-### git status, git add
+### git status
+> git-status - Show the working tree status
+
+Git status shows the state of git index -- index vs working tree???
+
+
+### git add
+> git-add - Add file contents to the index
+
 Git tracks all the changes to the current branch.   
 Let's add a file:   
 ```bash
@@ -147,4 +166,27 @@ TODO
 ### git push
 
 
+---
+
 ### HEAD
+Commit at the tip of the current branch.   
+
+### Index == Staging Area
+Intermediate state between our filesystem and our working tree.   
+Index tracks three types of files:
+
+* tracked, modified (staged) - files to-be-committed
+* tracked, modified (unstaged)
+* untracked
+
+### Working Tree
+The file and directory representation of the project you are currently working on.   
+`git add` stages changes in the working tree to the `index`.   
+
+
+
+
+## Sources
+
+* https://blog.osteele.com/2008/05/my-git-workflow/ -- awesome workflow example, oldschool guy, uses index as intermediate staging area (instead of rebasing)
+* https://git-school.github.io/visualizing-git/#free-remote
