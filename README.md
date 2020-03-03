@@ -192,6 +192,19 @@ Index tracks three types of files:
 The file and directory representation of the project you are currently working on.   
 `git add` stages changes in the working tree to the `index`.   
 
+## Scripts
+```bash
+cd scripts
+```
+Install the requirements
+```bash
+pip3 install .
+```
+Run the scripts.
+```bash
+python3 prepare_repo_server.py
+```
+
 
 
 
