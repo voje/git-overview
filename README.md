@@ -101,6 +101,15 @@ For a quick overview, you can try `$ git status` to see what's new and `$ git lo
 
 
 ### git checkout -b new_branch
+TODO
+```bash
+ 2020  git checkout fetch
+ 2021  git fetch
+ 2022  git branch --all
+ 2023  git checkout staging
+ 2024  git branch
+```
+
 After cloning a git project, we are on the `master` branch.   
 You can check this with `$git branch --all`.   
 You will see your local branches (only `master` right now) and all the remote branches -- the branches on the remote server.   
