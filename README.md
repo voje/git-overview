@@ -66,7 +66,7 @@ echo "Some new feature" > new_feature.txt
 git add new_feature.txt
 
 # Commit the change.
-git commit -m "Adds new feature."
+git commit -m "Adds new feature"
 
 # Check the working tree.
 git status
